@@ -69,11 +69,14 @@ int buscarVeiculoRecursivo(Veiculo *frota, int indice, int quantidade, char plac
 
 int contarPremiumRecursivo(Veiculo *frota, int indice, int quantidade){
 	if (indice == quantidade){
+		// caso base ou parada
 		return 0;
 	} else {
 		if (frota[indice].valor >= VALOR_PREMIUM) {
+			// se satisfazer a condição, incrementa 1 à pilha e da continuidade na recursividade
 			return contarPremiumRecursivo(frota,indice + 1,quantidade) + 1;
 		} else {
+			// caso contrário, apenas da continuidade na recursividade
 			return contarPremiumRecursivo(frota, indice + 1, quantidade);
 		}
 	}
